@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<flow name="mailFlow" doc:id="25af34d0-e51a-4f48-b4ae-30b8a083a0aa" >
+		<http:listener doc:name="Listener" doc:id="4b731811-967c-45f1-9ef1-6bd5df4baede" config-ref="HTTP_Listener_config" path="/api"/>
+		<logger level="INFO" doc:name="Logger" doc:id="68b9cda6-950d-4cbb-817d-317176598ed7" message="New api has been created"/>
+		<flow-ref doc:name="Flow Reference" doc:id="63f92ffa-83fc-447b-b674-1ac6d2b187e5" name="Subflow"/>
+		<async doc:name="Async" doc:id="cd085619-1f82-49e8-9ba5-dee0ece3dc16" >
+			<logger level="INFO" doc:name="1" doc:id="bed8ed7d-946b-4c64-a968-2cd6853155fb" message="First"/>
+			<logger level="INFO" doc:name="2" doc:id="28b8e513-23a9-4553-87e6-c7bf4bd67214" message="Second"/>
+			<logger level="INFO" doc:name="3" doc:id="736bf4b0-ef98-46a9-b1b6-7d87fd92237e" message="third"/>
+			<logger level="INFO" doc:name="4" doc:id="a2761a0a-3bfb-4277-9057-9f566bee04f7" message="Fourth"/>
+		</async>
+		<logger level="INFO" doc:name="5" doc:id="524d2d01-84b7-410d-a841-3644f9656de6" message="Fifth"/>
+		<logger level="INFO" doc:name="6" doc:id="99256ed8-3174-44c3-b873-489d8262757b" message="Sixth"/>
+		<flow-ref doc:name="Flow Reference" doc:id="dcba6018-d92d-4204-a6ec-c863b6ce793e" name="PrivateFlow"/>
+	</flow>
+</mule>
