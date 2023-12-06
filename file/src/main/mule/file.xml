@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ftp="http://www.mulesoft.org/schema/mule/ftp" xmlns:file="http://www.mulesoft.org/schema/mule/file"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd
+http://www.mulesoft.org/schema/mule/ftp http://www.mulesoft.org/schema/mule/ftp/current/mule-ftp.xsd">
+	<file:config name="local-file-config" doc:name="File Config" doc:id="b90fba31-c51f-4be3-a360-5beff3117984" />
+	<flow name="fileFlow" doc:id="7e5766aa-96e7-4391-b7e9-940a539e6b7d" >
+		<http:listener doc:name="Listener" doc:id="bae5ea1b-5c63-41d4-a224-57150daa0a71" config-ref="HTTP_Listener_config" path="/File"/>
+		<file:move doc:name="Move" doc:id="6e2c4c52-de6b-4802-b5f6-cfa6fde175e1" config-ref="local-file-config" sourcePath="C:\Users\gayat\OneDrive\Desktop\gayathri\Study\Data Viz" targetPath="C:\Users\gayat\OneDrive\Desktop\13-homework"/>
+	</flow>
+</mule>
